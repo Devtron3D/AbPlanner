@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="AbPlaner.Blazor/AbPlaner.Blazor.csproj" />
+  <Project Path="AbPlanner.API/AbPlanner.API.csproj" />
   <Project Path="AbPlanner.DataAccess/AbPlanner.DataAccess.csproj" />
 </Solution>
