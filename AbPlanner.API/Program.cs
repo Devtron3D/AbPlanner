@@ -1,4 +1,7 @@
 
+using AbPlanner.DataAccess.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace AbPlanner.API
 {
     public class Program
@@ -13,9 +16,16 @@ namespace AbPlanner.API
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
-
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //DbContext
+            builder.Services.AddDbContext<AbPlanner.DataAccess.Data.AbPlannerContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
+
+            //Repositories
+            builder.Services.AddScoped<IAudiobookRepository, AudiobookRepository>();
 
             var app = builder.Build();
 
